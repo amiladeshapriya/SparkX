@@ -25,7 +25,6 @@ public class FiveOverGame extends GameController {
         for(int ball=0; ball<totNoOfBalls; ball++){
             getUserInput(scanner);
             int event = -1;
-            System.out.println(player.getSkillLevel());
             while(event<player.getSkillLevel()){
                 int eventId = rand.nextInt(TOTAL_PLAY_EVENTS);
                 if(0<=eventId && eventId<=2){event = 0;}
