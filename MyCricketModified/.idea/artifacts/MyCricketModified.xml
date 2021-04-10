@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="MyCricketModified">
+    <output-path>$PROJECT_DIR$/out/artifacts/MyCricketModified</output-path>
+    <root id="root">
+      <element id="archive" name="MyCricketModified.jar">
+        <element id="module-output" name="MyCricketModified" />
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/com/META-INF/MANIFEST.MF" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.spark.cricketmod.Main
+Class-Path: D:\SparkX\MyCricketModified\src\com\spark\cricketmod
+
