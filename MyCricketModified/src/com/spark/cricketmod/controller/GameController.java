@@ -13,26 +13,26 @@ public abstract class GameController {
 
     public static final int NO_OF_PLAYERS = 6;
 
-    abstract protected int bat(Team battingTeam,int targetScore, Scanner scanner);
+    abstract protected int bat(Team battingTeam,int targetScore, Scanner scanner); //returns total score of the team at the end of inning
 
     public void playGame(String difficultyLevel){
         try(Scanner scanner = new Scanner(System.in)){
             List<Team> teams = new ArrayList<>();
-            createTeams(teams,scanner,difficultyLevel);
-            Team wonTossTeam = getWonTossTeam(teams);
+            createTeams(teams,scanner,difficultyLevel); //creates teams with players according to the difficulty level
+            Team wonTossTeam = getWonTossTeam(teams); //check toss result
             Team lossTossTeam = teams.get(0).getWonTheToss() ? teams.get(1):teams.get(0);
-            int targetScore = bat(wonTossTeam,-1,scanner);
+            int targetScore = bat(wonTossTeam,-1,scanner); //first inning score
             FiveOverGame scoreObj = new FiveOverGame();
-            int secondScore=bat(lossTossTeam, targetScore,scanner);
+            int secondScore=bat(lossTossTeam, targetScore,scanner);  //second inning score
 
-            if(targetScore>secondScore){
-                System.out.println("Team "+wonTossTeam.getName()+" has won the match by "+(targetScore-secondScore)+" runs");
-            }else if(targetScore<secondScore){
-                System.out.println("Team "+lossTossTeam.getName()+" has won the match by "+(secondScore-targetScore)+" runs");
+            if(teams.get(0).getTotScore()>teams.get(1).getTotScore()){
+                System.out.println("Your team "+teams.get(0).getName()+" has won the match by "+Math.abs(targetScore-secondScore)+" runs");
+            }else if(teams.get(0).getTotScore()<teams.get(1).getTotScore()){
+                System.out.println("Computer's team "+teams.get(1).getName()+" has won the match by "+Math.abs(targetScore-secondScore)+" runs");
             }else {
                 System.out.println("Match is drawn!");
             }
-            scoreObj.scoreBoard(teams);
+            scoreObj.scoreBoard(teams); //shows score board at the end of the match
 
         }
         catch (Exception e){
@@ -50,7 +50,7 @@ public abstract class GameController {
             System.out.println("Your Team: "+wonTossTeam.getName()+" won the toss!");
         }
         else{
-            System.out.println("Computers Team: "+wonTossTeam.getName()+" won the toss!");
+            System.out.println("Computer's Team: "+wonTossTeam.getName()+" won the toss!");
         }
         return wonTossTeam;
     }

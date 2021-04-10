@@ -25,7 +25,7 @@ public class FiveOverGame extends GameController {
         for(int ball=0; ball<totNoOfBalls; ball++){
             getUserInput(scanner);
             int event = -1;
-            while(event<player.getSkillLevel()){
+            while(event<player.getSkillLevel()){ //compare player skill level with generated run: 0 to 6 are runs, 7,8 are wickets
                 int eventId = rand.nextInt(TOTAL_PLAY_EVENTS);
                 if(0<=eventId && eventId<=2){event = 0;}
                 else if(3<=eventId && eventId<=5){event = 1;}
@@ -61,7 +61,7 @@ public class FiveOverGame extends GameController {
             if(battingTeam.getTotScore()>targetScore && targetScore>-1){
                 break;
             }
-            if(player==null){
+            if(player==null){ //when the team is out of batsmen
                 break;
             }
         }

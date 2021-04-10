@@ -12,7 +12,7 @@ public class Player {
         this.name=name;
         this.score=0;
         this.wicketType="--";
-        this.skillLevel = setSkillLevel(difficultLevel); //default skill level
+        this.skillLevel = setSkillLevel(difficultLevel); //set skill level of player according to the difficulty level
     }
 
     private int setSkillLevel(String difficultLevel) {

@@ -12,12 +12,12 @@ public class Main {
 
         try(Scanner scan = new Scanner(System.in)){
             while(scan.hasNext()){
-                String userIn = getUserInput1(scan);
-                if(userIn.equalsIgnoreCase("e")){
+                String userIn = getUserInput1(scan); //Get the user input
+                if(userIn.equalsIgnoreCase("e")){ //if input is 'e' game exits
                     break;
                 }
                 System.out.println("Select Game Difficulty Level\nEnter 'e' for Easy.\nEnter 'm' for Medium.\nEnter 'h' for Hard.\n");
-                userIn = getUserInput2(scan);
+                userIn = getUserInput2(scan);   //Select game difficulty level
                 if(userIn.equalsIgnoreCase("e")){
                     System.out.println("Easy Mode Selected");
                     GameController game = new FiveOverGame();
@@ -34,15 +34,16 @@ public class Main {
                     game.playGame("hard");
                 }
 
+
             }
 
         }
         catch(Exception e){
-            System.out.println("Input error! Please check your input."+e);
+            System.out.println("Input error! Please check your input."+e);  //in case of input error
         }
     }
 
-    private static String getUserInput2(Scanner scan){
+    private static String getUserInput2(Scanner scan){ //for selecting game difficulty level
         String userInput = scan.next();
         while(userInput==null||!(userInput.equalsIgnoreCase("e")||userInput.equalsIgnoreCase("m")||userInput.equalsIgnoreCase("h"))){
             System.out.println("Invalid input! Please check input and try again!");
